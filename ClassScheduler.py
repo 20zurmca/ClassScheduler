@@ -35,7 +35,7 @@ def properMenuChoice(classIndex):
         return False
     return True
 
-def properTimeInput(time):
+def properTimeInput(time_):
     """
     Method properTimeInput returns whether the user entered a valid time
     
@@ -43,8 +43,8 @@ def properTimeInput(time):
     :param time: The user's entered time
     :returns: a boolean whether the user entered time in a valid format
     """
-    if not time.isdigit() or ":" in time or "a.m".lower() in time or "p.m".lower() in time or time == "" or len(time)<4 or int(time) > 2400 or int(time) < 0 or int(time[2])>5:
-        print("'",time, "' is an invalid input for the time. Use 24 hr format.\nExamples: 8 a.m = 0800, 1 p.m = 1300, 2:30 = 1430, 12:50 a.m = 0050\n")
+    if not time_.isdigit() or len(time_)>4 or int(time_) > 2400 or int(time_) < 0 or int(time_[2])>5:
+        print("'",time_, "' is an invalid input for the time. Use 24 hr format.\nExamples: 8 a.m = 0800, 1 p.m = 1300, 2:30 = 1430, 12:50 a.m = 0050\n")
         return False
     return True
 
@@ -152,7 +152,7 @@ def editClass():
     """
     Method edit class accepts user inputs to change fields of a user-selected class in the list
     """
-    noChangesMade = True; #Keeps track if changes were made at all
+    noChangesMade = True #Keeps track if changes were made at all
     displayClassList(True)
     if len(classes) == 0: #if no classes, return
         return
@@ -182,17 +182,17 @@ def editClass():
         
     newStartTime = input("Enter new starting time for class: ")
     if(newStartTime.isdigit()): #If the starting time is a digit at all
-         while not properTimeInput(newStartTime): #persist for proper entry
-             newStartTime = input("Enter a valid new starting time (24 hr format): ")
-         class_.setstartTime(newStartTime)
-         noChangesMade = False
+        while not properTimeInput(newStartTime): #persist for proper entry
+            newStartTime = input("Enter a valid new starting time (24 hr format): ")
+        class_.setstartTime(newStartTime)
+        noChangesMade = False
         
     newEndTime = input("Enter new ending time for class: ")
     if(newEndTime.isdigit()):
-         while not properTimeInput(newEndTime):
+        while not properTimeInput(newEndTime):
             newEndTime = input("Enter a valid new ending time (24 hr format): ")
-         class_.setendTime(newEndTime)
-         noChangesMade = False
+        class_.setendTime(newEndTime)
+        noChangesMade = False
         
     if noChangesMade:
         print("\n No Changes Made")
@@ -327,7 +327,7 @@ def mainLoop():
    
     while True:
         choice = mainMenuChoice()
-        if choice == None:
+        if choice is None:
             delay()
             clearTerminal()
             continue
