@@ -1,8 +1,16 @@
 # ClassScheduler
-A script that will schedule classes for you. 
+A script that will help you schedule your classes. Data input is menu driven 
 
-Input is class names and times.  
-You may enter as many classes as you want, just follow the terminal prompts.
-All possible schedules are printed without overlaps (time format is in 24 hours).
+You may enter as many classes as you want, just follow the terminal prompts. Overlapping classes will not be added to schedule.
+User will be warned when over lapping classes are inputed.  
 
-Optional report to csv.
+Report to csv supported.
+
+To run on command line: python "ClassScheduler.py"
+
+REQUIREMENTS:
+python 3.x
+Download all files
+
+
+
