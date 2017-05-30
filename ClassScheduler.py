@@ -4,7 +4,8 @@ A class scheduler that will schedule classes without overlaps
 User will enter class information, program will warn if overlaps occur 
 
 @author Cameron Zurmuhl, zurmuhlc@lafayette.edu
-@version 1.0
+@version 1.0: Initial program
+@version 1.1: Minor bugs fixed 
 """
   
 #%% The main part of the script that runs the program
@@ -27,7 +28,7 @@ def properMenuChoice(classIndex):
     :returns: a boolean whether the user chose a valid choice 
     
     """
-    if not classIndex.isdigit():
+    if not classIndex.strip().isdigit():
         print ("'", classIndex, "' needs to be a number corresponding to a class entry\n")
         return False
     if int(classIndex) < 1 or int(classIndex) > len(classes)+1:
@@ -43,7 +44,7 @@ def properTimeInput(time_):
     :param time: The user's entered time
     :returns: a boolean whether the user entered time in a valid format
     """
-    if not time_.isdigit() or len(time_)>4 or int(time_) > 2400 or int(time_) < 0 or int(time_[2])>5:
+    if not time_.isdigit() or len(time_) > 4 or len(time_) < 4 or int(time_) > 2400 or int(time_) < 0 or int(time_[2])>5:
         print("'",time_, "' is an invalid input for the time. Use 24 hr format.\nExamples: 8 a.m = 0800, 1 p.m = 1300, 2:30 = 1430, 12:50 a.m = 0050\n")
         return False
     return True
@@ -57,7 +58,7 @@ def properDayInput(day):
     :returns: a boolean whether the user entered time in a valid format
     """
     possibleStrings = ["m","mon","monday","tu","tue","tues","tuesday","w",
-                      "we","wed","wednesday","th","tr","thu","thur","thurs","thursday","f","fr",
+                      "we","wed","wednesday","th","tr","r", "thu","thur","thurs","thursday","f","fr",
                       "fri","friday","sa","sat","saturday","su","sun","sunday"]
     
     validString = False
@@ -122,8 +123,8 @@ def addClass():
         print("Please enter a day of the week")
         day = input("Day of Class: ")
         
-    className = input("Name of Class: ")
-    if className.strip() == "": #If user does not put in a field (or just a bunch of spaces)
+    className = input("Name of Class: ").strip()
+    if className == "": #If user does not put in a field (or just a bunch of spaces)
         className = "EMPTY ENTRY!"
         
     startTime = input("Starting Time: ")
@@ -181,14 +182,14 @@ def editClass():
         noChangesMade = False
         
     newStartTime = input("Enter new starting time for class: ")
-    if(newStartTime.isdigit()): #If the starting time is a digit at all
+    if not newStartTime.strip() == "": #Check for entry
         while not properTimeInput(newStartTime): #persist for proper entry
             newStartTime = input("Enter a valid new starting time (24 hr format): ")
         class_.setstartTime(newStartTime)
         noChangesMade = False
         
     newEndTime = input("Enter new ending time for class: ")
-    if(newEndTime.isdigit()):
+    if not newStartTime.strip() == "":
         while not properTimeInput(newEndTime):
             newEndTime = input("Enter a valid new ending time (24 hr format): ")
         class_.setendTime(newEndTime)
@@ -211,11 +212,11 @@ def deleteClass():
     
     print("\nWhich class would you like to delete?")
     classIndex = input("Choice: ")
+    while not properMenuChoice(classIndex):
+        classIndex = input("Please enter a valid menu choice: ")    
+         
     if int(classIndex) == len(classes) + 1: #Return if choice is None from displayClassList
-        return
-    else:
-        while not properMenuChoice(classIndex): 
-            classIndex = input("Please enter a valid menu choice: ")         
+        return        
     classIndex = int(classIndex)
     className = classes[classIndex-1].getName()
     classDay =  classes[classIndex-1].getDay()
@@ -295,7 +296,7 @@ def save_class_list():
         classStringList.clear() #clear the classString List
         for i in range(0,len(classes)):
             classStringList.append(classes[i].csvRow()) #enter classes to the classStringList from the classes
-        f = open("mySchedule.csv", 'w', newline =  '')
+        f = open("mySchedule.csv", 'w', newline ='')
         csv.writer(f).writerow(["Day", "Class", "Start Time", "End Time"])
         for classCSVString in classStringList:
             csv.writer(f).writerow(classCSVString)

@@ -28,7 +28,7 @@ class Day(object):
         elif dayofWeek[0].lower() == "w":
              self.dayofWeek = "Wednesday"
              self.DAY_OF_WEEK_INT = 2
-        elif dayofWeek[0].lower() == "t" and dayofWeek[1].lower() == "h" or dayofWeek[0].lower() == "t" and dayofWeek[1].lower() == "r":
+        elif dayofWeek[0].lower() == "r" or (dayofWeek[0].lower() == "t" and dayofWeek[1].lower() == "h") or (dayofWeek[0].lower() == "t" and dayofWeek[1].lower() == "r"):
              self.dayofWeek = "Thursday"
              self.DAY_OF_WEEK_INT = 3
         elif dayofWeek[0].lower() == "f":
