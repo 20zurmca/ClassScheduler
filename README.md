@@ -19,7 +19,7 @@ python 3.x.
 <b>Add a class: </b> <br />
 <img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/adding_new_class.PNG">
 <b>Notice the class is added in order </b> <br />
-<img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/added_in_order.PNG">
+<img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/added_in_order.PNG"> <br />
 <b>Export to a .csv </b> <br />
 <img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/csv.PNG">
 
