@@ -9,7 +9,19 @@ Report to csv supported. mySchedule.csv is my example.
 To run on command line: python "ClassScheduler.py"
 
 REQUIREMENTS:
-python 3.x. Download all .py files
+python 3.x.
+
+## Demo for some functionality
+<b>Bring up Menu upon launch:</b> <br />
+<img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/Menu.PNG">
+<b>Show your classes: </b> <br />
+<img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/showClass.PNG">
+<b>Add a class: </b> <br />
+<img scr = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/adding_new_class.PNG">
+<b>Notice the class is added in order </b> <br />
+<img scr = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/added_in_order.PNG">
+<b>Export to a .csv </b> <br />
+<img scr = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/csv.PNG">
 
 
 
