@@ -21,7 +21,9 @@ python 3.x.
 <b>Notice the class is added in order </b> <br />
 <img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/added_in_order.PNG"> <br />
 <b>Export to a .csv </b> <br />
-<img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/csv.PNG">
+<img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/csv.PNG"> <br />
+<b>No Duplicates Allowed</b> <br />
+<img src = "https://github.com/20zurmca/ClassScheduler/blob/master/Class%20Scheduler%20Demo/no_duplicates.PNG">
 
 
 
